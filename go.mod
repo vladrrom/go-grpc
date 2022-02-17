@@ -1,9 +1,8 @@
-module netangels/passwordservice
+module netangels/piservice
 
 go 1.17
 
 require (
-	github.com/michaelbironneau/garbler v0.0.0-20180525195632-2018e2dc9c11
 	google.golang.org/grpc v1.28.0-pre
 	google.golang.org/protobuf v1.26.0-rc.1
 )

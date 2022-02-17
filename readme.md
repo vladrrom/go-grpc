@@ -18,3 +18,8 @@ docker run -it -p 5300:5300 matzhouse/grpc-server
 
 go build -o reverse
 ./reverse "this is a test"
+
+docker-compose up
+docker-compose logs -f --tail="50" vladslaves-backend
+
+bin/client 5000

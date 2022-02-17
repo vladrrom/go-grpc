@@ -4,9 +4,10 @@ import (
 	"context"
 	"log"
 	"os"
+	"strconv"
 	"time"
 
-	ps "netangels/passwordservice/proto"
+	ps "netangels/piservice/proto"
 
 	"google.golang.org/grpc"
 )
@@ -15,17 +16,20 @@ func main() {
 
 	conn, _ := grpc.Dial("127.0.0.1:8080", grpc.WithInsecure())
 	start := time.Now()
-	client := ps.NewPasswordGeneratorServiceClient(conn)
+	client := ps.NewCalcPiClient(conn)
 
+	log.Println("Entered quantity of goroutines:")
 	sample := os.Args[1]
+	n, err := strconv.Atoi(sample)
 
-	resp, err := client.Generate(context.Background(),
-		&ps.PasswordRequest{Sample: sample})
+	resp, err := client.GeneratePi(context.Background(),
+		&ps.PiRequest{Accuracy: int32(n)})
 
 	if err != nil {
-		log.Fatalf("could not get answer: %v", err)
+		log.Fatalf("Could not get answer: %v", err)
 	}
-	log.Println("New password:", resp.Password)
+	log.Println("Pi:", resp.Pi)
+
 	duration := time.Since(start)
-	log.Println(duration)
+	log.Printf("Duration: %v", duration)
 }
