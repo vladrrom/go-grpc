@@ -4,7 +4,7 @@
 // versions:
 // 	protoc-gen-go v1.27.1
 // 	protoc        v3.19.4
-// source: passwordservice.proto
+// source: piservice.proto
 
 // весь полученный из этого протобафа код добавляем
 //в пакет passwordservice
@@ -40,7 +40,7 @@ type PiRequest struct {
 func (x *PiRequest) Reset() {
 	*x = PiRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_passwordservice_proto_msgTypes[0]
+		mi := &file_piservice_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -53,7 +53,7 @@ func (x *PiRequest) String() string {
 func (*PiRequest) ProtoMessage() {}
 
 func (x *PiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_passwordservice_proto_msgTypes[0]
+	mi := &file_piservice_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -66,7 +66,7 @@ func (x *PiRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PiRequest.ProtoReflect.Descriptor instead.
 func (*PiRequest) Descriptor() ([]byte, []int) {
-	return file_passwordservice_proto_rawDescGZIP(), []int{0}
+	return file_piservice_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *PiRequest) GetAccuracy() int32 {
@@ -87,7 +87,7 @@ type PiResponse struct {
 func (x *PiResponse) Reset() {
 	*x = PiResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_passwordservice_proto_msgTypes[1]
+		mi := &file_piservice_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -100,7 +100,7 @@ func (x *PiResponse) String() string {
 func (*PiResponse) ProtoMessage() {}
 
 func (x *PiResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_passwordservice_proto_msgTypes[1]
+	mi := &file_piservice_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -113,7 +113,7 @@ func (x *PiResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PiResponse.ProtoReflect.Descriptor instead.
 func (*PiResponse) Descriptor() ([]byte, []int) {
-	return file_passwordservice_proto_rawDescGZIP(), []int{1}
+	return file_piservice_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *PiResponse) GetPi() float64 {
@@ -123,42 +123,42 @@ func (x *PiResponse) GetPi() float64 {
 	return 0
 }
 
-var File_passwordservice_proto protoreflect.FileDescriptor
+var File_piservice_proto protoreflect.FileDescriptor
 
-var file_passwordservice_proto_rawDesc = []byte{
-	0x0a, 0x15, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x70, 0x69, 0x73, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x22, 0x27, 0x0a, 0x09, 0x50, 0x69, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
-	0x1a, 0x0a, 0x08, 0x41, 0x63, 0x63, 0x75, 0x72, 0x61, 0x63, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x52, 0x08, 0x41, 0x63, 0x63, 0x75, 0x72, 0x61, 0x63, 0x79, 0x22, 0x1c, 0x0a, 0x0a, 0x50,
-	0x69, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x50, 0x69, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x01, 0x52, 0x02, 0x50, 0x69, 0x32, 0x45, 0x0a, 0x06, 0x43, 0x61, 0x6c,
-	0x63, 0x50, 0x69, 0x12, 0x3b, 0x0a, 0x0a, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x50,
-	0x69, 0x12, 0x14, 0x2e, 0x70, 0x69, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x50, 0x69,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x69, 0x73, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x50, 0x69, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
-	0x42, 0x0d, 0x5a, 0x0b, 0x2e, 0x3b, 0x70, 0x69, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+var file_piservice_proto_rawDesc = []byte{
+	0x0a, 0x0f, 0x70, 0x69, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x12, 0x09, 0x70, 0x69, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x22, 0x27, 0x0a, 0x09,
+	0x50, 0x69, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x41, 0x63, 0x63,
+	0x75, 0x72, 0x61, 0x63, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x41, 0x63, 0x63,
+	0x75, 0x72, 0x61, 0x63, 0x79, 0x22, 0x1c, 0x0a, 0x0a, 0x50, 0x69, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x50, 0x69, 0x18, 0x01, 0x20, 0x01, 0x28, 0x01, 0x52,
+	0x02, 0x50, 0x69, 0x32, 0x45, 0x0a, 0x06, 0x43, 0x61, 0x6c, 0x63, 0x50, 0x69, 0x12, 0x3b, 0x0a,
+	0x0a, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x50, 0x69, 0x12, 0x14, 0x2e, 0x70, 0x69,
+	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x50, 0x69, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x15, 0x2e, 0x70, 0x69, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x50, 0x69,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x0d, 0x5a, 0x0b, 0x2e, 0x3b,
+	0x70, 0x69, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (
-	file_passwordservice_proto_rawDescOnce sync.Once
-	file_passwordservice_proto_rawDescData = file_passwordservice_proto_rawDesc
+	file_piservice_proto_rawDescOnce sync.Once
+	file_piservice_proto_rawDescData = file_piservice_proto_rawDesc
 )
 
-func file_passwordservice_proto_rawDescGZIP() []byte {
-	file_passwordservice_proto_rawDescOnce.Do(func() {
-		file_passwordservice_proto_rawDescData = protoimpl.X.CompressGZIP(file_passwordservice_proto_rawDescData)
+func file_piservice_proto_rawDescGZIP() []byte {
+	file_piservice_proto_rawDescOnce.Do(func() {
+		file_piservice_proto_rawDescData = protoimpl.X.CompressGZIP(file_piservice_proto_rawDescData)
 	})
-	return file_passwordservice_proto_rawDescData
+	return file_piservice_proto_rawDescData
 }
 
-var file_passwordservice_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_passwordservice_proto_goTypes = []interface{}{
+var file_piservice_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_piservice_proto_goTypes = []interface{}{
 	(*PiRequest)(nil),  // 0: piservice.PiRequest
 	(*PiResponse)(nil), // 1: piservice.PiResponse
 }
-var file_passwordservice_proto_depIdxs = []int32{
+var file_piservice_proto_depIdxs = []int32{
 	0, // 0: piservice.CalcPi.GeneratePi:input_type -> piservice.PiRequest
 	1, // 1: piservice.CalcPi.GeneratePi:output_type -> piservice.PiResponse
 	1, // [1:2] is the sub-list for method output_type
@@ -168,13 +168,13 @@ var file_passwordservice_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_passwordservice_proto_init() }
-func file_passwordservice_proto_init() {
-	if File_passwordservice_proto != nil {
+func init() { file_piservice_proto_init() }
+func file_piservice_proto_init() {
+	if File_piservice_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_passwordservice_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_piservice_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PiRequest); i {
 			case 0:
 				return &v.state
@@ -186,7 +186,7 @@ func file_passwordservice_proto_init() {
 				return nil
 			}
 		}
-		file_passwordservice_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_piservice_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PiResponse); i {
 			case 0:
 				return &v.state
@@ -203,20 +203,20 @@ func file_passwordservice_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_passwordservice_proto_rawDesc,
+			RawDescriptor: file_piservice_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_passwordservice_proto_goTypes,
-		DependencyIndexes: file_passwordservice_proto_depIdxs,
-		MessageInfos:      file_passwordservice_proto_msgTypes,
+		GoTypes:           file_piservice_proto_goTypes,
+		DependencyIndexes: file_piservice_proto_depIdxs,
+		MessageInfos:      file_piservice_proto_msgTypes,
 	}.Build()
-	File_passwordservice_proto = out.File
-	file_passwordservice_proto_rawDesc = nil
-	file_passwordservice_proto_goTypes = nil
-	file_passwordservice_proto_depIdxs = nil
+	File_piservice_proto = out.File
+	file_piservice_proto_rawDesc = nil
+	file_piservice_proto_goTypes = nil
+	file_piservice_proto_depIdxs = nil
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -296,5 +296,5 @@ var _CalcPi_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "passwordservice.proto",
+	Metadata: "piservice.proto",
 }

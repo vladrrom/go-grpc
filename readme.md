@@ -1,25 +1,52 @@
-go get github.com/golang/protobuf@v1.4
+## Installation
 
-protoc -I proto proto/passwordservice.proto --go_out=plugins=grpc:proto/
+- Checkout source code
 
-go build -race -ldflags "-s -w" -o bin/server server/main.go
+`$ git clone https://github.com/vladrrom/go-grpc.git`
 
-go build -race -ldflags "-s -w" -o bin/client client/main.go
+- gRPC installation
 
-bin/server
+`$ go get -u google.golang.org/grpc`
 
-bin/client "gimme.a.pass"
+- Compilier protoc installation
 
-go build -o main . / docker build -t main .
+`$ go get github.com/golang/protobuf@v1.4`
 
-docker images
+## Commands
 
-docker run -it -p 5300:5300 matzhouse/grpc-server
+- Proto file generate
 
-go build -o reverse
-./reverse "this is a test"
+`$ protoc -I proto proto/piservice.proto --go_out=plugins=grpc:proto/`
 
-docker-compose up
-docker-compose logs -f --tail="50" vladslaves-backend
+## Local project
 
-bin/client 5000
+- Building and start server
+
+```sh
+$ go build -race -ldflags "-s -w" -o bin/server server/main.go
+$ bin/server
+```
+
+- Building and start client
+
+```sh
+$ go build -race -ldflags "-s -w" -o bin/client client/main.go
+$ bin/client 500000
+```
+
+## Docker container
+
+- Docker run. Building and start server in container
+
+```sh
+$ docker-compose up
+$ docker-compose logs -f --tail="50" CalcPiGRPC
+$ docker images
+```
+
+- Building and start client
+
+```sh
+$ go build -race -ldflags "-s -w" -o bin/client client/main.go
+$ bin/client 500000
+```

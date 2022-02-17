@@ -10,14 +10,6 @@ package piservice;
 
 option go_package = ".;piservice";
 
-//message PasswordRequest {
-//    string sample = 1;
-//}
-//
-//message PasswordResponse {
-//    string password = 1;
-//}
-
 message PiRequest {
     int32 Accuracy = 1;
 }
@@ -26,8 +18,8 @@ message PiResponse {
     double Pi = 1;
 }
 
-/* сервис PasswordGeneratorService с методом Generate, который
-получает PasswordRequest, а возращает PasswordResponse */
+/* сервис CalcPi с методом GeneratePi, который
+получает PiRequest, а возращает PaiResponse */
 
 service CalcPi {
     rpc GeneratePi(PiRequest) returns (PiResponse) {}
