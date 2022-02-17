@@ -30,7 +30,7 @@ $ bin/server
 - Building and start client
 
 ```sh
-$ go build -race -ldflags "-s -w" -o bin/client client/main.go
+$ go build -ldflags "-s -w" -o bin/client client/main.go
 $ bin/client 500000
 ```
 
@@ -47,6 +47,6 @@ $ docker images
 - Building and start client
 
 ```sh
-$ go build -race -ldflags "-s -w" -o bin/client client/main.go
+$ go build -ldflags "-s -w" -o bin/client client/main.go
 $ bin/client 500000
 ```

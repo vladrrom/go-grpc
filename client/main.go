@@ -18,9 +18,10 @@ func main() {
 	start := time.Now()
 	client := ps.NewCalcPiClient(conn)
 
-	log.Println("Entered quantity of goroutines:")
 	sample := os.Args[1]
 	n, err := strconv.Atoi(sample)
+
+	log.Printf("Entered quantity of goroutines: %v", n)
 
 	resp, err := client.GeneratePi(context.Background(),
 		&ps.PiRequest{Accuracy: int32(n)})
