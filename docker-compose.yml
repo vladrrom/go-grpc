@@ -1,9 +1,16 @@
 version: "3"
 
 services:
-  grpc-backend:
-    build: .
+  grpc-backend-one:
+    build: ./microservice_one
     restart: always
-    container_name: grpc-backend
+    container_name: grpc-backend-one
     ports:
       - '8080:8080'
+
+  grpc-backend-two:
+    build: ./microservice_two
+    restart: always
+    container_name: grpc-backend-two
+    ports:
+      - '8081:8081'

@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"sync"
 	"time"
 
 	ps "netangels/piservice/proto"
@@ -14,22 +15,47 @@ import (
 
 func main() {
 
-	conn, _ := grpc.Dial("127.0.0.1:8080", grpc.WithInsecure())
+	var wg sync.WaitGroup
+
+	conn1, _ := grpc.Dial("127.0.0.1:8080", grpc.WithInsecure())
+	conn2, _ := grpc.Dial("127.0.0.1:8081", grpc.WithInsecure())
+
 	start := time.Now()
-	client := ps.NewCalcPiClient(conn)
+	client1 := ps.NewCalcPiClient(conn1)
+	client2 := ps.NewCalcPiClient(conn2)
+
+	var err error
 
 	sample := os.Args[1]
 	n, err := strconv.Atoi(sample)
 
 	log.Printf("Entered quantity of goroutines: %v", n)
 
-	resp, err := client.GeneratePi(context.Background(),
-		&ps.PiRequest{Accuracy: int32(n)})
+	var resp1 *ps.PiResponse
+	var resp2 *ps.PiResponse
 
-	if err != nil {
-		log.Fatalf("Could not get answer: %v", err)
-	}
-	log.Println("Pi:", resp.Pi)
+	wg.Add(1)
+
+	go func(req *ps.PiRequest) {
+		defer wg.Done()
+		if resp1, err = client1.GeneratePi(context.Background(), req); err != nil {
+			log.Fatalf("Could not get answer: %v", err)
+		}
+	}(&ps.PiRequest{Start: int32(0), Accuracy: int32(n / 2)})
+
+	wg.Add(1)
+
+	go func(req *ps.PiRequest) {
+		defer wg.Done()
+		if resp2, err = client2.GeneratePi(context.Background(), req); err != nil {
+			log.Fatalf("Could not get answer: %v", err)
+		}
+
+	}(&ps.PiRequest{Start: int32(n / 2), Accuracy: int32(n)})
+
+	wg.Wait()
+
+	log.Println("Pi:", resp1.Pi+resp2.Pi)
 
 	duration := time.Since(start)
 	log.Printf("Duration: %v", duration)

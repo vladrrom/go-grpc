@@ -6,7 +6,8 @@ package piservice;
 option go_package = ".;piservice";
 
 message PiRequest {
-    int32 Accuracy = 1;
+    int32 Start = 1;
+    int32 Accuracy = 2;
 }
 
 message PiResponse {
